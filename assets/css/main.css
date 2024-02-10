@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+    font-family: "Kanit";
+    src: url("../fonts/Kanit-Regular.ttf");
+}
+
+.h2-font {
+    font-family: "Kanit";
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.h3-font {
+    font-family: "Kanit";
+    font-size: 1.25rem;
+}
+
+.text-font {
+    font-family: "Kanit";
+    font-size: 1rem;
+}
+
+.tag-font {
+    font-family: "Kanit";
+    font-size: 0.875rem;
+}
