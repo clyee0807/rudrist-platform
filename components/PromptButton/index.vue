@@ -8,7 +8,7 @@ defineProps(["icon", "active"])
         hover:cursor-pointer 
         before:absolute before:top-1 before:right-1 before:w-4 before:h-4 before:rounded-full [&.active]:before:bg-fuschi-100
     ">
-        <img class="w-full h-full" :src="icon" alt="">
+        <img class="w-full h-full dark:invert" :src="icon" alt="">
     </a>
 </template>
 
