@@ -1,29 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 
-defineProps(["width", "height"]);
-
-const items = ref([
-    {
-        name: "Cos",
-        icon: "/_nuxt/assets/img/currency/Cosmos.png",
-    }, {
-        name: "Doge",
-        icon: "/_nuxt/assets/img/currency/Doge.png",
-    }, {
-        name: "Lite",
-        icon: "/_nuxt/assets/img/currency/Lite.png",
-    }, {
-        name: "Polk",
-        icon: "/_nuxt/assets/img/currency/Polkadot.png",
-    }, {
-        name: "ETH",
-        icon: "/_nuxt/assets/img/currency/Ethereum.png",
-    }, {
-        name: "BTC",
-        icon: "/_nuxt/assets/img/currency/Bit.png",
-    },
-]);
+defineProps(["width", "height", "items"]);
 
 const toggleListVisibility = (evt) => {
     const dropdown = evt.currentTarget.parentNode;
