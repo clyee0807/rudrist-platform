@@ -18,11 +18,18 @@ const sideNavigations = ref([
         <Side :navigations="sideNavigations"/>
         <main class="flex flex-col flex-1 h-full">
             <Header />
-            <section class="w-full flex-1 rounded-tl-3xl bg-white-200 dark:bg-black-100">
+            <section class="w-full flex-1 rounded-tl-3xl bg-white-200 dark:bg-black-100 p-4">
                 <slot></slot>
             </section>
         </main>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+section {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-rows: 24rem 1fr 1fr 24rem;
+    grid-template-columns: 16rem 26rem 1fr 26rem;
+}
+</style>
