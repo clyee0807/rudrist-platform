@@ -23,8 +23,8 @@ const currencyDropDownItems = ref([
 </script>
 
 <template>
-    <header class="flex items-center w-full h-24">
-        <h2 class="title text-black-100 dark:text-white-100 text-4xl font-normal">Dashboard</h2>
+    <header class="flex items-center w-full h-24 p-4">
+        <h2 class="title text-black-100 dark:text-white-100 h1-font font-normal">Dashboard</h2>
         <div class="flex items-center justify-end flex-1 h-full gap-4 px-8">
             <DropDown class="text-center text-2xl font-normal text-black-100 dark:text-white-100" width="10rem" height="3rem" :items="currencyDropDownItems"/>
             <PromptButton class="w-12 h-12" icon="/_nuxt/assets/img/application/Profile.png" :active="false"/>

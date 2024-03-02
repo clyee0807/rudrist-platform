@@ -40,7 +40,7 @@ const onChangeBS = (evt, color) => {
 </script>
 
 <template>
-    <Block :row="row" :col="col" class="flex flex-col gap-2.5">
+    <Block :row="row" :col="col" class="flex flex-col gap-y-5">
         <div class="flex items-center">
             <h3 class="flex-1 text-2xl font-medium text-black-100 dark:text-white-100">Place Your Orders</h3>
         </div>
@@ -89,7 +89,7 @@ const onChangeBS = (evt, color) => {
 
 <style scoped>
 input {
-    @apply w-full h-full outline-none border-none text-center tracking-wider text-base;
+    @apply w-full h-full outline-none border-none text-center tracking-wider text-lg;
 }
 input[type="text"] {
     @apply bg-transparent text-black-100 dark:text-white-100 placeholder:text-gray-200;

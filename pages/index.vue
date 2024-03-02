@@ -6,7 +6,7 @@ definePageMeta({
 
 <template>
     <div class="flex justify-center">
-        <div class="text-xl font-bold">Welcome to Rudrist</div>
+        <div class="h2-font font-bold">Welcome to Rudrist</div>
     </div>
 </template>
 

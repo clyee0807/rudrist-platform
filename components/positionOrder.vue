@@ -4,7 +4,7 @@
 			<p v-if="currentView === 'orders'" class="h2-font">Pending Orders</p>
 			<p v-else class="h2-font">Positions</p>
 			<div class="relative ml-[60%]">
-				<div v-if="currentView === 'orders'" class="dropdown tag-font" @click="toggleDropdown" @blur="closeDropdown" tabindex="0">
+				<div v-if="currentView === 'positions'" class="dropdown tag-font" @click="toggleDropdown" @blur="closeDropdown" tabindex="0">
 					<button class="dropdown-button pl-2 inline-flex border rounded-lg items-center">{{ currentCurrency }}
 						<svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -21,7 +21,7 @@
 				<p class="tag-font">{{currentView}}</p>
 			</button>
 		</div>
-		<div v-if="currentView === 'positions'">
+		<div v-if="currentView === 'orders'">
 			<template v-for="order in orders" :key="order.orderId">
 				<div class="flex flex-row justify-between items-center shadow-lg rounded-lg px-[0.5%] py-[1%] my-[2%]">
 					<div>
