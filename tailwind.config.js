@@ -43,7 +43,21 @@ export default {
         300: "#4BEBBB",
       },
     },
-    extend: {},
+    extend: {
+      colors: {
+        'white-200': '#F8F8F8',
+        'Fuschi-100': '#EF5DA8',
+        'lime-100': '#20C997',
+      }
+    },
+    fontSize: {
+      'h1': '2.5rem',
+      'h2': '1.5rem',
+      'h3': '1.25rem',
+    },
+    fontFamily: {
+      'kanit': ['Kanit', 'system-ui'],
+    },
   },
   plugins: [],
 };
