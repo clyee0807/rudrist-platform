@@ -1,13 +1,12 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <!-- <div class="flex justify-center">
     <div class="text-xl font-bold">TEST</div>
   </div> -->
-  <!-- <BlockPlaceOrderAltCLyee/> -->
-  <!-- <BlockPlaceOrder /> -->
-  <PositionOrder/>
+  <BlockPlaceOrderAltCLyee />
+  <BlockPlaceOrder />
+  <PositionOrder />
   <!-- <Portfolios/> -->
   <!-- <BlockCalendar /> -->
 </template>
