@@ -1,7 +1,7 @@
 <template>
 	<div class="order-container h-2/3 p-[1%] rounded-lg shadow-lg">
 		<div class="flex flex-row justify-between items-center">
-			<p v-if="currentView === 'orders'" class="h2-font">Pending Orders</p>
+			<p v-if="currentView === 'positions'" class="h2-font">Pending Orders</p>
 			<p v-else class="h2-font">Positions</p>
 			<div class="relative ml-[60%]">
 				<div v-if="currentView === 'positions'" class="dropdown tag-font" @click="toggleDropdown" @blur="closeDropdown" tabindex="0">
