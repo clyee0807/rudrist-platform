@@ -1,7 +1,7 @@
 <template>
 	<div class="order-container p-[1%] rounded-lg shadow-lg">
 		<p class="h2-font">Mark Price</p>
-		<div class="flex items-center shadow-lg rounded-lg p-[1%] my-[2%]">
+		<div class="flex items-center shadow-lg rounded-lg p-[1%]">
 			<div class="w-1/12">
 				<p class="tag-font">#</p>
 			</div>

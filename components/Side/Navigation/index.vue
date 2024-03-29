@@ -28,7 +28,7 @@ const onClick = (evt) => {
         before:absolute before:left-0 before:w-2.5 before:h-full [&.active]:before:bg-iris-100 before:duration-300
         hover:cursor-pointer
     " @click="onClick">
-        <img class="w-12 h-12 ml-4 dark:invert" :src="icon" alt="">
+        <img class="w-9 h-9 ml-3 dark:invert" :src="icon" alt="">
         <h3 class="name flex-1 text-black-100 dark:text-white-100 h2-font font-normal text-nowrap">{{ name }}</h3>
     </a>
 </template>

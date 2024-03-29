@@ -5,8 +5,8 @@ const switchTheme = ()=>document.documentElement.classList.toggle("dark");
 <template>
     <div class="
         relative overflow-hidden 
-        flex items-center w-24 h-12 cursor-pointer 
-        rounded-3xl border-4 border-gray-200 
+        flex items-center w-24 h-10 cursor-pointer 
+        rounded-3xl border-2 border-gray-200 
         bg-white-100 dark:bg-black-200
     " @click="switchTheme">
         <div class="absolute -left-0 dark:-left-10 flex items-center p-2 gap-2 duration-300">
