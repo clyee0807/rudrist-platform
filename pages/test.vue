@@ -4,12 +4,18 @@
   <!-- <div class="flex justify-center">
     <div class="text-xl font-bold">TEST</div>
   </div> -->
+<<<<<<< HEAD
+  <BlockPlaceOrderAltCLyee />
+  <BlockPlaceOrder />
+  <PositionOrder />
+=======
   <!-- <BlockPlaceOrderAltCLyee/> -->
   <!-- <BlockPlaceOrder /> -->
   <PositionOrder/>
   <!-- <LedgerApproval/>
   <MarkPrice/>
   <CurrencyTrend/> -->
+>>>>>>> 1a6c026 (Feat: CurrencyTrend, ledgerApproval,  makrkPrice)
   <!-- <Portfolios/> -->
   <!-- <BlockCalendar /> -->
 
