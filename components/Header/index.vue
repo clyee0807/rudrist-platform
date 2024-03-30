@@ -29,7 +29,7 @@ const currencyDropDownItems = ref([
             <DropDown class="text-center text-xl font-normal text-black-100 dark:text-white-100" width="10rem" height="2.5rem" :items="currencyDropDownItems"/>
             <PromptButton class="w-9 h-9" icon="/_nuxt/assets/img/application/Profile.png" :active="false"/>
             <PromptButton class="w-9 h-9" icon="/_nuxt/assets/img/application/Notification.png" :active="true"/>
-            <ThemeSwitch />
+            <!-- <ThemeSwitch /> -->
         </div>
     </header>
 </template>
