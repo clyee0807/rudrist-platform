@@ -15,4 +15,7 @@ export default defineNuxtConfig({
       title: "Rudrist",
     },
   },
+  build: {
+    transpile: ['@vuepic/vue-datepicker']
+  }
 });

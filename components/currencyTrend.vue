@@ -1,7 +1,7 @@
 <!-- https://tw.tradingview.com/widget/ -->
 <template>
-    <div class="tradingview-widget-container h-full w-full rounded-lg shadow-lg p-3">
-        <div id="tradingview_71878" style="height: calc(100% - 32px); width: 100%;"></div>
+    <div class="tradingview-widget-container h-full w-full rounded-lg shadow-lg px-3 pt-3">
+        <div id="tradingview_71878" style="height: calc(100% - 10px); width: 100%;"></div>
     </div>
 </template>
 

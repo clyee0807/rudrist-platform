@@ -1,5 +1,5 @@
 <template>
-	<div class="order-container p-[1%] rounded-lg shadow-lg">
+	<div class="h-full w-full order-container p-[1%] rounded-lg shadow-lg ">
 		<p class="h2-font">Mark Price</p>
 		<div class="flex items-center shadow-lg rounded-lg p-[1%]">
 			<div class="w-1/12">
@@ -12,24 +12,33 @@
 				<p class="tag-font">Calendar</p>
 			</div>
 		</div>
-		<div v-for="order in orders" :key="order.orderId">
-			<div class="flex flex-row justify-between items-center shadow-lg rounded-lg px-[0.5%] py-[1%] my-[2%]">
-				<div class="w-2/12">
-					<p class="order-pCur text-font">{{ order.payingCurrency }}</p>
-				</div>
-				<div class="w-3/12">
-					<input class="bg-white-200 rounded-md px-2 w-[80%]" type="text" placeholder="Price">
-				</div>	
-				<div class="w-3/12 items-center">
-					<p class="order-tCur text-font">{{ order.time }}</p>
-				</div>	
-				<div class="w-4/12 flex flex-row gap-2">
-					<button class="bg-lime-100 text-white-100 rounded-md px-2 w-[80%]">
-						OK
-					</button>
-					<button class="bg-white-100 text-lime-100 border-2 border-lime-100 rounded-md px-2 w-[80%]">
-						SHOW
-					</button>
+		<div class="max-h-[75%] overflow-y-auto">
+			<div class="" v-for="order in orders" :key="order.orderId">
+				<div class="h-[70px] flex flex-row justify-between items-center shadow-lg rounded-lg px-[10px] py-[10px] my-[10px] bg-white-100">
+					<div class="w-2/12">
+						<p class="order-pCur text-font">{{ order.payingCurrency }}</p>
+					</div>
+					<div class="w-3/12">
+						<input class="bg-white-200 rounded-md px-2 w-[80%]" type="text" placeholder="Price">
+					</div>	
+					<div class="w-3/12 items-center">
+						<div class="datepicker-container">
+							<VueDatePicker 
+								class="datepicker dp__theme_light"
+								v-model="date"
+								:enable-time-picker="false"
+								@update:model-value="handleDate"
+							/>
+						</div>
+					</div>	
+					<div class="w-4/12 flex flex-row gap-2">
+						<button class="bg-lime-100 text-white-100 rounded-md px-2 w-[80%]">
+							OK
+						</button>
+						<button class="bg-white-100 text-lime-100 border-2 border-lime-100 rounded-md px-2 w-[80%]">
+							SHOW
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -38,7 +47,8 @@
 
 <script setup>
 import { ref } from 'vue'
-
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
 
 const orders = 
 [
@@ -84,13 +94,13 @@ const switchCurrency = () => {
 	console.log('Switching currency into', currentCurrency.value);
 }
 
-const isDropdownOpen = ref(false);
-const toggleDropdown = () => {
-  	isDropdownOpen.value = !isDropdownOpen.value;
-}
-const closeDropdown = () => {
-  	isDropdownOpen.value = false;
-}
+// const isDropdownOpen = ref(false);
+// const toggleDropdown = () => {
+//   	isDropdownOpen.value = !isDropdownOpen.value;
+// }
+// const closeDropdown = () => {
+//   	isDropdownOpen.value = false;
+// }
 
 /* ---------- positions ---------- */
 const handleClick = (id) => {
@@ -100,3 +110,16 @@ const handleClick = (id) => {
 
 </script>
 
+
+<style scoped>
+/* .datepicker-container {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 10; 
+} */
+
+:deep(.dp_menu) {
+	position: fixed;
+	z-index: 100;
+}
+</style>

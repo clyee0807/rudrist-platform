@@ -1,26 +1,26 @@
 <template>
-    <div class="h-full p-6 mx-auto bg-white rounded-xl shadow-md flex flex-col space-y-4">
+    <div class="h-full px-6 py-4 mx-auto bg-white rounded-xl shadow-md flex flex-col space-y-4">
         <p class="h2-font">Ledger #{{ledgerId}} Info</p>  
         <div class="">
-            <div class="py-5 bg-lime-100 rounded-md">
+            <div class="py-[5%] bg-lime-100 rounded-md">
                 <div class="flex flex-row items-center justify-center">
-                    <p class="h2-font text-center">$ &nbsp;{{ dummyLedger.quantity }}&nbsp;</p>
-                    <p class="text-font text-center ">BTC</p>
+                    <p class="text-font text-center">$ &nbsp;{{ dummyLedger.quantity }}&nbsp;</p>
+                    <p class="tag-font text-center ">BTC</p>
                 </div>
             </div>
             <div class="my-2 py-2 bg-white-200">
                 <p class="my-2 text-font text-center">From</p>
-                <div class="border-4 border-lime-100 rounded-md">
-                    <p class="h2-font text-center">Portfolio A</p>
+                <div class="border-2 border-lime-100 rounded-md">
+                    <p class="text-font text-center">Portfolio A</p>
                 </div>
                 <p class="my-2 text-font text-center">To</p>
-                <div class="border-4 border-lime-100 rounded-md">
-                    <p class="h2-font text-center">Portfolio B</p>
+                <div class="border-2 border-lime-100 rounded-md">
+                    <p class="text-font text-center">Portfolio B</p>
                 </div>
             </div>
             <div class="py-2">
                 <p class="my-[5%] text-gray-300 text-font text-center">Trader Name</p>
-                <p class="text-gray-300 h2-font text-center">Trader1</p>
+                <p class="text-gray-300 text-font text-center">Trader1</p>
             </div>
         </div>
         

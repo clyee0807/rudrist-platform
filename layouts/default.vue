@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="p-10">
+  <div class="w-full h-full">
     <slot />
   </div>
 </template>
