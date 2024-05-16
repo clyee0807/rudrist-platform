@@ -1,13 +1,9 @@
 <script setup>
 definePageMeta({
-    layout: "admin",
+    layout: "traderm",
 });
 </script>
 
-<template>
-    <div class="flex justify-center">
-        <div class="h2-font font-bold">Welcome to Rudrist</div>
-    </div>
-</template>
+<template></template>
 
 <style scoped></style>

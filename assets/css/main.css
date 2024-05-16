@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -84,4 +86,43 @@ body,
 .semiTag-font {
   font-family: "Kanit";
   font-size: 0.75rem;
+}
+
+/* monospaced font */
+.monospaced-h1-font {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem; /* 36px */
+  font-weight: 700;
+}
+.monospaced-h2-font {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 700;
+}
+.monospaced-h3-font {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.monospaced-text-font {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.monospaced-span-font {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.monospaced-tag-font {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.monospaced-semiTag-font {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
