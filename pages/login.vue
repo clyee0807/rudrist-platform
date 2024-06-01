@@ -52,14 +52,17 @@
 
 <script setup>
 import { useNuxtApp } from "#app"
+import { useCookie } from '#app'
 
 // definePageMeta({
-//   middleware: ["adminAuth"]   // testing purpose
+//   middleware: ["admin-auth"]   // testing purpose
 //   // or middleware: 'auth'
 // })
 
 const nuxtApp = useNuxtApp();
 const api = nuxtApp.$api;
+const userToken = useCookie('user_token');
+const router = useRouter()
 
 const userId = ref()
 const password = ref()
@@ -72,27 +75,33 @@ const togglePasswordVisibility = () => {
 
 const login = async () => {
   try {
-    console.log(api.user)
-    const user = await api.user.login({
-      name: userId,
-      password
-    });
-    console.log(user);
+    const result = await api.user.getCurrentUser(
+      {
+
+      },
+      {
+        headers: useRequestHeaders(["cookie"])
+      }
+    )
+
+
+    // const result = await api.user.login({
+    //   name: userId,
+    //   password
+    // });
+    // if (result.status == 'successful') {
+    //   router.push('/')
+    //   console.log('login successfully')
+    // } else {
+    //   console.error('login failed')
+    // }
+      
+    // console.log(result);
+    // console.log(userToken.value);
   } catch(e) {
     console.error(e)
   }
 }
-
-// const fetchUser = async () => {
-//   try {
-//     const user = await api.user.getUser();
-//     console.log(user);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// fetchUser();
 </script>
 
 <style lang="scss" scoped></style>

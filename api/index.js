@@ -1,5 +1,7 @@
 import { useCookie } from '#app';
+// import Cookies from 'universal-cookie';
 import { useFetch } from '#app';
+import { $fetch } from 'ofetch';
 import * as user from './user.js';
 import * as order from './order.js';
 import * as portfolio from './portfolio.js';
@@ -19,40 +21,36 @@ const insertApi = (controller, api) => {
 
 export default defineNuxtPlugin((nuxtApp) => {
   const cookiz = useCookie('user_token');
+//   const cookies = new Cookies();
   const baseURL = process.env.BASE_URL || 'http://localhost:8080';
 
   const api = async (method, url, data, headers = {}, params = {}) => {
     const token = cookiz.value;
-    // console.log('token', cookiz)
+    // const token = cookies.get('user_token');
 
-    if (token) {
+    // if (token) {
       headers['Authorization'] = `Bearer ${token}`;
       headers['Access-Control-Allow-Origin'] = '*';
-    }
+      headers['Accept'] = 'application/json'; // Ensure we request JSON data
+    // }
 
     try {
-    //   const { status, data:result, error } = await $fetch(url, {
-    //     method,
-    //     baseURL,
-    //     body: method.toLowerCase() === 'get' ? null : data,
-    //     params: method.toLowerCase() === 'get' ? data : params,
-    //     headers
-    //   });
-
-      const result2 = await $fetch(url, {
+      const response = await useFetch(url, {
         method,
         baseURL,
         body: method.toLowerCase() === 'get' ? null : data,
         params: method.toLowerCase() === 'get' ? data : params,
-        headers
+        headers,
+        credentials: 'include', // Ensure credentials are included
       });
 
-    //   if (error) {
-    //     throw error;
-    //   }
+      const result = response.data.value;
+      if (!result) {
+        throw new Error('No data received from API');
+      }
+      // console.log(token)
 
-      console.log("result", result2)
-      return result2;
+      return result; // This should be the JSON response
     } catch (error) {
       if (process.env.NODE_ENV !== 'production') console.error(error);
       throw error;
