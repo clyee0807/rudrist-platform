@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-    layout: "traderm",
+    layout: "traderTest",
 });
 </script>
 
