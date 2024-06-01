@@ -23,15 +23,23 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   const api = async (method, url, data, headers = {}, params = {}) => {
     const token = cookiz.value;
-    console.log('token', cookiz)
+    // console.log('token', cookiz)
 
-    // if (token) {
+    if (token) {
       headers['Authorization'] = `Bearer ${token}`;
       headers['Access-Control-Allow-Origin'] = '*';
-    // }
+    }
 
     try {
-      const { data: result, error } = await $fetch(url, {
+    //   const { status, data:result, error } = await $fetch(url, {
+    //     method,
+    //     baseURL,
+    //     body: method.toLowerCase() === 'get' ? null : data,
+    //     params: method.toLowerCase() === 'get' ? data : params,
+    //     headers
+    //   });
+
+      const result2 = await $fetch(url, {
         method,
         baseURL,
         body: method.toLowerCase() === 'get' ? null : data,
@@ -39,11 +47,12 @@ export default defineNuxtPlugin((nuxtApp) => {
         headers
       });
 
-      if (error.value) {
-        throw error.value;
-      }
+    //   if (error) {
+    //     throw error;
+    //   }
 
-      return result.value;
+      console.log("result", result2)
+      return result2;
     } catch (error) {
       if (process.env.NODE_ENV !== 'production') console.error(error);
       throw error;

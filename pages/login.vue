@@ -10,11 +10,12 @@
             <div>
               <label for="email" class="block mb-2 h2-font">Email</label>
               <input
-                type="email"
-                name="email"
-                id="email"
+                type="userId"
+                name="userId"
+                v-model="userId"
+                id="userId"
                 class="h2-font border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5"
-                placeholder="test@gmail.com"
+                placeholder="testtest"
                 required=""
               />
             </div>
@@ -24,6 +25,7 @@
                 :type="showPassword ? 'text' : 'password'"
                 name="password"
                 id="password"
+                v-model="password"
                 placeholder="••••••••"
                 class="h2-font border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5"
                 required=""
@@ -51,14 +53,16 @@
 <script setup>
 import { useNuxtApp } from "#app"
 
-definePageMeta({
-  middleware: ["adminAuth"]   // testing purpose
-  // or middleware: 'auth'
-})
+// definePageMeta({
+//   middleware: ["adminAuth"]   // testing purpose
+//   // or middleware: 'auth'
+// })
 
 const nuxtApp = useNuxtApp();
 const api = nuxtApp.$api;
 
+const userId = ref()
+const password = ref()
 const showPassword = ref(false);
 
 const togglePasswordVisibility = () => {
@@ -68,8 +72,11 @@ const togglePasswordVisibility = () => {
 
 const login = async () => {
   try {
-    console.log(api)
-    const user = await api.user.login();
+    console.log(api.user)
+    const user = await api.user.login({
+      name: userId,
+      password
+    });
     console.log(user);
   } catch(e) {
     console.error(e)
