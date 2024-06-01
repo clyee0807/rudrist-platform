@@ -8,6 +8,9 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  plugins: [
+    './api/index.js',
+  ],
   app: {
     head: {
       charset: "utf-8",

@@ -30,6 +30,7 @@
               />
             </div>
             <button
+              @click="login"
               type="submit"
               class="w-full h2-font text-white-200 bg-lime-100 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-iris-100 rounded-lg px-5 py-2.5 text-center"
             >
@@ -48,12 +49,43 @@
 </template>
 
 <script setup>
+import { useNuxtApp } from "#app"
+
+definePageMeta({
+  middleware: ["adminAuth"]   // testing purpose
+  // or middleware: 'auth'
+})
+
+const nuxtApp = useNuxtApp();
+const api = nuxtApp.$api;
+
 const showPassword = ref(false);
 
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value;
   console.log(showPassword.value);
 };
+
+const login = async () => {
+  try {
+    console.log(api)
+    const user = await api.user.login();
+    console.log(user);
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+// const fetchUser = async () => {
+//   try {
+//     const user = await api.user.getUser();
+//     console.log(user);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
+// fetchUser();
 </script>
 
 <style lang="scss" scoped></style>
