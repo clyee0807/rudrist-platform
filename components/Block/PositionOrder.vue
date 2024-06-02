@@ -1,7 +1,7 @@
 <template>
     <Block :row="row" :col="col" class="flex flex-col gap-y-5">
 		<div class="flex flex-row justify-between items-center">
-			<div v-if="currentView === 'positions'" class="flex items-center">
+			<div v-if="currentView === 'orders'" class="flex items-center">
 				<h3 class="flex-1 text-2xl font-medium text-black-100 dark:text-white-100">Pending Orders</h3>
 			</div>
 			<div v-else class="flex items-center">
@@ -12,7 +12,7 @@
             		<DropDown class="text-center text-base font-normal text-black-100 dark:text-white-100" width="7em" height="2rem" :items="positionOrderDropDownItems"/>
 				</div>
 				<button class="shadow-lg w-24 h-8 px-2 py-1 rounded-lg bg-iris-100" @click="switchView">
-					<p class="tag-font text-white-100 tracking-wide">{{currentView}}</p>
+					<p class="tag-font text-white-100 tracking-wide">{{nextView}}</p>
 				</button>
 			</div>
 		</div>
@@ -134,8 +134,10 @@ const orders =
 
 /* ---------- orders ---------- */
 const currentView = ref('orders'); // orders / positions
+const nextView = ref('positions');
 const switchView = () => {
 	currentView.value = currentView.value === 'positions' ? 'orders' : 'positions';
+	nextView.value = nextView.value === 'positions' ? 'orders' : 'positions';
 	console.log('Switching view into', currentView.value);
 }
 
