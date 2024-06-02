@@ -5,7 +5,7 @@
         </div>
 		<div 
 			class="portfolio rounded-lg" 
-			v-for="portfolio in portfolios" :key="portfolio.id"
+			v-for="portfolio in portfolioStore.portfolios" :key="portfolio.id"
 			@click="handleClick(portfolio.id)"
 			@mouseover="handleMouseOver($event)"
 			@mouseleave="handleMouseLeave($event)"
@@ -16,39 +16,31 @@
 				<div class="flex flex-row justify-end items-center">
 					<!-- TODO: real amount instead of position-->
 					<div class="portfolio-value text-font">{{ portfolio.positions[0].balance }}&nbsp&nbsp</div>
-					<div class="portfolio-currency tag-font">{{ portfolio.currency }}</div>
+					<div class="portfolio-currency tag-font">{{ portfolio.positions[0].symbol }}</div>
 				</div>
 			</div>
 		</div>
 		<!-- TODO: DEBUG purpose-->
-		<!-- <div>
-			<button @click="modifyPortfolio">TEST</button>
-		</div> -->
+		<div>
+			<button @click="test">TEST</button>
+		</div>
 	</Block>
 </template>
 
 <script setup>
+import { usePortfolioStore } from '@/stores/portfolioStore';
+
 const nuxtApp = useNuxtApp();
 const api = nuxtApp.$api;
-const portfolios = ref([])
+const portfolioStore = usePortfolioStore();
 
 onMounted(async () => {
-  try {
-    portfolios.value = await api.portfolio.getPortfolio(
-      {
-      }, {
-        headers: useRequestHeaders(["cookie"])
-      }
-    );
-	portfolios.value = portfolios.value.data
-    console.log('get Portfolios', portfolios.value)
-	// return result
-  } catch(e) {
-    console.error(e)
-  }
-  
+	portfolioStore.fetchPortfolios();
 })
 
+const test = () => {
+	console.log(portfolioStore.portfolios)
+}
 // const portfolios = 
 // [
 // 	{ id: 'Portfolio B', amount: 322041, currency: 'BTC' },

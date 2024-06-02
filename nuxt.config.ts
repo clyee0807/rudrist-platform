@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   plugins: [
     './api/index.js',
   ],
+  modules: [
+    '@pinia/nuxt',
+  ],
   app: {
     head: {
       charset: "utf-8",
