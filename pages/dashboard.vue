@@ -6,7 +6,7 @@ definePageMeta({
 
 <template>
     <BlockPortfolios class="w-full h-full" style="grid-column: 1 / 2; grid-row: 1 / 3;" />
-    <PortfolioAnalysis class="w-full h-full" style="grid-column: 2 / 3; grid-row: 1 / 2;" />
+    <BlockTradingView class="w-full h-full" style="grid-column: 2 / 3; grid-row: 1 / 2;" />
     <BlockSendLedger class="w-full h-full" style="grid-column: 3 / 4; grid-row: 1 / 2;" />
     <BlockPositionOrder class="w-full h-full" style="grid-column: 2 / 3; grid-row: 2 / 3;" />
     <BlockPlaceOrder class="w-full h-full" style="grid-column: 3 / 4; grid-row: 2 / 3;" />

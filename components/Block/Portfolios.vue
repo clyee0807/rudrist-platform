@@ -10,26 +10,51 @@
 			@mouseover="handleMouseOver($event)"
 			@mouseleave="handleMouseLeave($event)"
 		>
-			<div class="portfolio-id h3-font pl-[5%]">{{ portfolio.id }}</div>
+			<div class="portfolio-id h3-font pl-[5%]">{{ portfolio.name }}</div>
 			<div class="flex flex-row px-[10%] justify-between">
 				<div class="portfolio-value text-font pl-[35%]">$</div>
 				<div class="flex flex-row justify-end items-center">
-					<div class="portfolio-value text-font">{{ portfolio.amount }}&nbsp&nbsp</div>
+					<!-- TODO: real amount instead of position-->
+					<div class="portfolio-value text-font">{{ portfolio.positions[0].balance }}&nbsp&nbsp</div>
 					<div class="portfolio-currency tag-font">{{ portfolio.currency }}</div>
 				</div>
 			</div>
 		</div>
+		<!-- TODO: DEBUG purpose-->
+		<!-- <div>
+			<button @click="modifyPortfolio">TEST</button>
+		</div> -->
 	</Block>
 </template>
 
 <script setup>
+const nuxtApp = useNuxtApp();
+const api = nuxtApp.$api;
+const portfolios = ref([])
 
-const portfolios = 
-[
-	{ id: 'Portfolio B', amount: 322041, currency: 'BTC' },
-	{ id: 'Portfolio A', amount: 147724, currency: 'USDT' },
-	{ id: 'Portfolio C', amount: 2679, currency: 'TWD' }
-];
+onMounted(async () => {
+  try {
+    portfolios.value = await api.portfolio.getPortfolio(
+      {
+      }, {
+        headers: useRequestHeaders(["cookie"])
+      }
+    );
+	portfolios.value = portfolios.value.data
+    console.log('get Portfolios', portfolios.value)
+	// return result
+  } catch(e) {
+    console.error(e)
+  }
+  
+})
+
+// const portfolios = 
+// [
+// 	{ id: 'Portfolio B', amount: 322041, currency: 'BTC' },
+// 	{ id: 'Portfolio A', amount: 147724, currency: 'USDT' },
+// 	{ id: 'Portfolio C', amount: 2679, currency: 'TWD' }
+// ];
 
 const handleClick = (id) => {
   console.log('Portfolio clicked:', id);
@@ -41,6 +66,71 @@ const handleMouseOver = (event) => {
 
 const handleMouseLeave = (event) => {
   event.currentTarget.classList.remove('hover');
+}
+
+const addPortfolio = async () => {
+  try {
+    const result = await api.portfolio.addPortfolio(
+      {
+        name: "portfolio4",
+        position: [
+          "BTC/USDT"
+        ]
+      }, {
+        headers: useRequestHeaders(["cookie"])
+      }
+    );
+    console.log('add Portfolio id:', result.id)
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+const getPortfolio = async () => {
+  try {
+    const result = await api.portfolio.getPortfolio(
+      {
+      }, {
+        headers: useRequestHeaders(["cookie"])
+      }
+    );
+    console.log('get Portfolios', result.data[0].id)
+	return result
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+const modifyPortfolio = async () => {
+  try {
+    const result = await api.portfolio.modifyPortfolio(
+      {
+        name: "portfolio3",
+        amount: 5100,
+        symbol: "BTC"
+      }, {
+        headers: useRequestHeaders(["cookie"])
+      }
+    );
+    console.log('modify Portfolios', result)
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+const removePortfolio = async () => {
+  try {
+    const result = await api.portfolio.removePortfolio(
+      {
+        name: "portfolio1"
+      }, {
+        headers: useRequestHeaders(["cookie"])
+      }
+    );
+    console.log('remove Portfolios', result)
+  } catch(e) {
+    console.error(e)
+  }
 }
 
 </script>

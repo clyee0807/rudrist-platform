@@ -1,4 +1,5 @@
 <script setup>
+const router = useRouter()
 defineProps(["name", "icon", "active"]);
 
 const getSiblings = function(e){
@@ -18,6 +19,7 @@ const onClick = (evt) => {
     evt.currentTarget.classList.add("active");
     getSiblings(evt.currentTarget).forEach((e)=>e.classList.remove("active"));
     document.querySelector("header .title").innerText = evt.currentTarget.querySelector(".name").innerText;
+    router.push('/' + evt.currentTarget.querySelector(".name").innerText)
 }
 </script>
 

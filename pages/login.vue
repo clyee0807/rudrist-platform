@@ -75,29 +75,29 @@ const togglePasswordVisibility = () => {
 
 const login = async () => {
   try {
-    const result = await api.user.getCurrentUser(
-      {
+    // const result = await api.user.getCurrentUser(
+    //   {
 
-      },
-      {
-        headers: useRequestHeaders(["cookie"])
-      }
-    )
+    //   },
+    //   {
+    //     headers: useRequestHeaders(["cookie"])
+    //   }
+    // )
 
 
-    // const result = await api.user.login({
-    //   name: userId,
-    //   password
-    // });
-    // if (result.status == 'successful') {
-    //   router.push('/')
-    //   console.log('login successfully')
-    // } else {
-    //   console.error('login failed')
-    // }
+    const result = await api.user.login({
+      name: userId,
+      password
+    });
+    if (result.status == 'successful') {
+      router.push('/')
+      console.log('login successfully')
+    } else {
+      console.error('login failed')
+    }
       
-    // console.log(result);
-    // console.log(userToken.value);
+    console.log(result);
+    console.log(userToken.value);
   } catch(e) {
     console.error(e)
   }
