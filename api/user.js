@@ -7,9 +7,7 @@ export const register = async (api, data, headers = {}, params = {}) => {
 }
 
 export const getCurrentUser = async (api, data, headers = {}, params = {}) => {
-    const ans = await api.get('/api/auth/user', data, headers, params)
-    console.log('getCurrentUser', ans)
-    return ans
+    return await api.get('/api/auth/user', data, headers, params)
 }
 
 export const modifyuser = async (api, data, headers = {}, params = {}) => {

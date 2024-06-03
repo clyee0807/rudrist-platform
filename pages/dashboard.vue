@@ -1,6 +1,7 @@
 <script setup>
 definePageMeta({
     layout: "trader-test",
+    middleware: ["admin-auth"]
 });
 import { usePortfolioStore } from '@/stores/portfolioStore';
 

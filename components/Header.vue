@@ -1,4 +1,8 @@
 <script setup>
+import { useClearCookie } from '@/composables/clearCookie.js';
+import { reloadNuxtApp } from "nuxt/app";
+
+const { clearCookie } = useClearCookie();
 const router = useRouter()
 
 const currencyDropDownItems = ref([
@@ -39,7 +43,11 @@ const login = () => {
 }
 
 const logout = () => {
-    // clear the cookie
+    clearCookie();
+    reloadNuxtApp({
+        ttl: 1000,
+    });
+    console.log('logout')
 }
 </script>
 
