@@ -2,6 +2,14 @@
 definePageMeta({
     layout: "trader-test",
 });
+import { usePortfolioStore } from '@/stores/portfolioStore';
+
+const portfolioStore = usePortfolioStore();
+
+onMounted(async () => {
+	portfolioStore.fetchPortfolios();
+})
+
 </script>
 
 <template>

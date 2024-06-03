@@ -6,7 +6,7 @@
 		<div 
 			class="portfolio rounded-lg" 
 			v-for="portfolio in portfolioStore.portfolios" :key="portfolio.id"
-			@click="handleClick(portfolio.id)"
+			@click="handleClick(portfolio.id, portfolio.name)"
 			@mouseover="handleMouseOver($event)"
 			@mouseleave="handleMouseLeave($event)"
 		>
@@ -21,9 +21,9 @@
 			</div>
 		</div>
 		<!-- TODO: DEBUG purpose-->
-		<div>
+		<!-- <div>
 			<button @click="test">TEST</button>
-		</div>
+		</div> -->
 	</Block>
 </template>
 
@@ -33,10 +33,6 @@ import { usePortfolioStore } from '@/stores/portfolioStore';
 const nuxtApp = useNuxtApp();
 const api = nuxtApp.$api;
 const portfolioStore = usePortfolioStore();
-
-onMounted(async () => {
-	portfolioStore.fetchPortfolios();
-})
 
 const test = () => {
 	console.log(portfolioStore.portfolios)
@@ -48,8 +44,9 @@ const test = () => {
 // 	{ id: 'Portfolio C', amount: 2679, currency: 'TWD' }
 // ];
 
-const handleClick = (id) => {
-  console.log('Portfolio clicked:', id);
+const handleClick = (id, name) => {
+  console.log('Portfolio clicked:', id, name);
+  portfolioStore.getCurrentPortfolio(id, name);
 }
 
 const handleMouseOver = (event) => {

@@ -1,9 +1,15 @@
 <script setup>
 defineProps(["width", "height", "items"]);
+const emit = defineEmits(["currencyChanged"]);
 
 const toggleListVisibility = (evt) => {
     const dropdown = evt.currentTarget.parentNode;
     dropdown.classList.toggle("active");
+}
+
+const changeCurrency = (currencyName) => {
+    console.log('this is drop down', currencyName);
+    emit('currencyChanged', currencyName)
 }
 </script>
 
@@ -37,7 +43,7 @@ const toggleListVisibility = (evt) => {
             "
             :style="'border-radius: calc(' + height + ' / 2)'"
         >
-            <DropDownItem v-for="(item, idx) in items" :width="width" :height="height" :name="item.name" :icon="item.icon"></DropDownItem>
+            <DropDownItem v-for="(item, idx) in items" :width="width" :height="height" :name="item.name" :icon="item.icon" @click="changeCurrency(item.name)"></DropDownItem>
         </ul>
     </div>
 </template>
