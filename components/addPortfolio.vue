@@ -1,5 +1,5 @@
 <template>
-    <div class="px-6 py-4 h-auto bg-white-100 rounded-xl shadow-md flex flex-col">
+    <div class="px-6 py-4 h-full bg-white-100 rounded-xl shadow-md flex flex-col">
         <p class="h2-font">Add Portfolio</p>  
         <div class="flex flex-row justify-between my-3">
             <button 
@@ -13,37 +13,45 @@
             </button>
         </div>
   
-        <div v-if="currentStep === 1">
-            <div class="shadow-inner h-32 p-2">
-                <p class="text-font pb-2">Name</p>
-                <input 
-                    class="border-2 rounded-md h-16 w-full"
-                    type="text" 
-                    v-model="portfolioName"
-                >
+        <div class="rounded-md shadow-inner h-[60%] px-2 py-3">
+            <div v-if="currentStep === 1">
+                    <p class="text-font pb-2">Name</p>
+                    <input 
+                        class="border-2 rounded-md h-16 w-full"
+                        type="text" 
+                        v-model="portfolioName"
+                    >
+                
             </div>
-        </div>
-    
-        <!-- Placeholder for other steps -->
-        <div v-if="currentStep === 2">
-            <div class="shadow-inner h-32 p-2">
-                <p class="text-font pb-2">我是step2</p>
-                <input 
-                    class="border-2 rounded-md h-16 w-full"
-                    type="text" 
-                    v-model="portfolioName"
-                >
-            </div>
-        </div>
         
-        <div v-if="currentStep === 3">
-            <div class="shadow-inner h-32 p-2">
-                <p class="text-font pb-2">我是step3</p>
-                <input 
-                    class="border-2 rounded-md h-16 w-full"
-                    type="text" 
-                    v-model="portfolioName"
-                >
+            <div v-if="currentStep === 2">
+                <p class="text-font pb-2">Available Positions</p>
+                <div class="dropdown tag-font relative" @click="toggleRemoveDropdown" @blur="closeRemoveDropdown" tabindex="0">
+					<button class="dropdown-button w-full h-8 flex items-center justify-between pl-2 border rounded-lg ">
+                        Account 6512858
+						<svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+						</svg>
+					</button>
+					<div class="dropdown-content w-full flex flex-col absolute z-10 my-1 bg-white-100 shadow-lg rounded-md" v-show="isRemoveDropdownOpen">
+						<button class="text-left pl-2 py-1">ABC</button>
+						<button class="text-left pl-2 py-1">ABC</button>
+						<button class="text-left pl-2 py-1">ABC</button>
+					</div>
+				</div>
+            </div>
+            
+            <div v-if="currentStep === 3" 
+                class="flex flex-col gap-2"    
+            >
+                <p class="text-font pb-2">Confirm</p>
+                <button class="text-white-100 px-5 py-1 bg-lime-100 rounded-md">
+                    Create Portfolio
+                </button>
+                <button class="text-gray-200 px-5 py-1 bg-white-300 rounded-md">
+                    Cancel
+                </button>
+            
             </div>
         </div>
     
@@ -74,6 +82,26 @@ const nextStep = currentStep.value + direction;
         currentStep.value = nextStep;
     }
 };
+const isAddDropdownOpen = ref(false);
+const isRemoveDropdownOpen = ref(false);
+const addCurrentCurrency = ref('TWD');
+const removeCurrentCurrency = ref('TWD');
+
+const toggleAddDropdown = () => {
+    isAddDropdownOpen.value = !isAddDropdownOpen.value;
+}
+const closeAddDropdown = () => {
+    isAddDropdownOpen.value = false;
+}
+
+const toggleRemoveDropdown = () => {
+    isRemoveDropdownOpen.value = !isRemoveDropdownOpen.value;
+}
+const closeRemoveDropdown = () => {
+    isRemoveDropdownOpen.value = false;
+}
+
+
 </script>
   
 <style scoped>

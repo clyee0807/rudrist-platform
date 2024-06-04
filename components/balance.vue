@@ -24,7 +24,10 @@ const portfolios = ref([
     { id: 1, name: 'Portfolio A', amount: 147724 },
     { id: 2, name: 'Portfolio B', amount: 322041 },
     { id: 3, name: 'Portfolio C', amount: 2679 },
-    { id: 4, name: 'Portfolio B', amount: 322041 }
+    { id: 4, name: 'Portfolio B', amount: 322041 },
+    { id: 5, name: 'Portfolio B', amount: 1451 },
+    { id: 6, name: 'Portfolio B', amount: 3465232 },
+    { id: 7, name: 'Portfolio B', amount: 12345 },
 ]);
 
 const handleDelectPortfolio = (pid) => {
@@ -39,10 +42,14 @@ const handleDelectPortfolio = (pid) => {
 <style scoped>
 .portfolio {
     /* cursor: pointer;  */
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  margin-bottom: 8px;
 	background-image: linear-gradient(to right, rgba(1, 89, 191, 0.2) 0%, rgba(1, 89, 191, 0.2) 100%);
 	background-size: 0% 100%;
 	background-repeat: no-repeat;
-    transition: background-color 0.3s; 
+  transition: background-color 0.3s; 
 }
 
 .portfolio:hover, .portfolio.hover {

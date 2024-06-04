@@ -1,8 +1,9 @@
 <template>
     <div class="h-full px-6 py-4 bg-white-100 rounded-xl shadow-md flex flex-col">
         <p class="h2-font">Total Amount</p>  
+        <p class="">這裡是固定的喔</p>  
         <!-- <div class="min-h-[50%] max-h-[75%]"> -->
-            <div class="flex flex-row justify-between items-center rounded-md bg-white-200 px-[0.5%] py-[3%] my-[2%] cursor-pointer">
+            <div class="flex flex-row justify-between items-center rounded-md bg-white-200 px-[0.5%] py-[3%] my-[2%]">
                 <div class="w-1/2">
                     <p class="h3-font text-center">$</p>
                 </div>

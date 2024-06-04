@@ -1,6 +1,10 @@
 <template>
-    <div class="h-full px-6 py-4 mx-auto bg-white rounded-xl shadow-md flex flex-col">
-        <p class="h2-font">Ledger Approval</p>  
+    <div class="px-6 py-4 mx-auto bg-white-100 rounded-xl shadow-md flex flex-col">
+        <!-- <p class="h2-font">Ledger Approval</p>   -->
+        <div class="flex justify-between items-center mb-4 mx-2">
+			<p class="h2-font">Ledger Approval</p>
+			<button @click="handleClosePopup" class="">X</button>
+		</div>
         <div class="min-h-[50%] max-h-[75%] overflow-y-auto">
             <div v-for="ledger in ledgers" :key="ledger.ledgerId">
                 <div class="flex flex-row justify-between items-center rounded-md border-2 px-[0.5%] py-[3%] my-[2%] cursor-pointer" 
@@ -70,7 +74,11 @@ const ledgers = [
 ]
 
 import { ref, defineEmits } from 'vue';
-const emit = defineEmits(['selectLedger']);
+const emit = defineEmits(['selectLedger', 'close']);
+const handleClosePopup = () => {
+ 	emit('close');
+};
+
 
 const selectedLedger = ref('0');  // not select any ledger
 const handleSelectLedger = (id) => {

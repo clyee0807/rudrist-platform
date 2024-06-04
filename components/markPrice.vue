@@ -1,6 +1,10 @@
 <template>
-	<div class="h-full w-full order-container p-[1%] rounded-lg shadow-lg ">
-		<p class="h2-font">Mark Price</p>
+	<div class="w-[80%] bg-white-100 order-container p-[1%] rounded-lg shadow-lg ">
+		<!-- <p class="h2-font">Mark Price</p> -->
+		<div class="flex justify-between items-center mb-4 mx-2">
+			<p class="h2-font">Mark Price</p>
+			<button @click="handleClosePopup" class="">X</button>
+		</div>
 		<div class="flex items-center shadow-lg rounded-lg p-[1%]">
 			<div class="w-1/12">
 				<p class="tag-font">#</p>
@@ -21,7 +25,7 @@
 					<div class="w-3/12">
 						<input class="bg-white-200 rounded-md px-2 w-[80%]" type="text" placeholder="Price">
 					</div>	
-					<div class="w-3/12 items-center">
+					<div class="w-4/12 items-center">
 						<div class="datepicker-container">
 							<VueDatePicker 
 								class="datepicker dp__theme_light"
@@ -31,14 +35,14 @@
 							/>
 						</div>
 					</div>	
-					<div class="w-4/12 flex flex-row gap-2">
-						<button class="bg-lime-100 text-white-100 rounded-md px-2 w-[80%]">
+					<!-- <div class="w-3/12 flex flex-row gap-2"> -->
+						<button class="bg-lime-100 text-white-100 rounded-md px-2 w-16">
 							OK
 						</button>
-						<button class="bg-white-100 text-lime-100 border-2 border-lime-100 rounded-md px-2 w-[80%]">
+						<!-- <button class="bg-white-100 text-lime-100 border-2 border-lime-100 rounded-md px-2 w-[80%]">
 							SHOW
-						</button>
-					</div>
+						</button> -->
+					<!-- </div> -->
 				</div>
 			</div>
 		</div>
@@ -46,9 +50,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, defineEmits } from 'vue'
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
+
+const emit = defineEmits(['close']);
+
+const handleClosePopup = () => {
+ 	emit('close');
+};
 
 const orders = 
 [

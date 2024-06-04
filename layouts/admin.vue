@@ -44,8 +44,8 @@ function selectLedger(ledger) {
         <Side :navigations="sideNavigations"/>
         <main class="flex flex-col flex-1">
             <Header />
-            <div class="h-[40%] flex flex-row gap-[0.5%]">
-                <div class="w-[300px] rounded-lg shadow-lg p-3">
+            <div class="h-[35%] flex flex-row gap-[0.5%]">
+                <!-- <div class="w-[300px] rounded-lg shadow-lg p-3">
                     <VueDatePicker 
                         class="datepicker dp__theme_light"
                         v-model="date"
@@ -53,14 +53,15 @@ function selectLedger(ledger) {
                         :enable-time-picker="false"
                         @update:model-value="handleDate"
                     />
-                </div>
-                <div class="w-full">
-                    <MarkPrice/>
-                </div>
+                </div> -->
+                <!-- <div class="w-3/5 h-full"> -->
+                <!-- </div> -->
+                <MarkPrice/>
+                <CurrencyTrend/>
             </div>
-            <div class="h-[50%] mt-[1%] flex flex-row gap-[0.5%] items-stretch">
-                <div :class="selectedLedger === '0' ? 'w-3/4' : 'w-7/12'" class = "flex">
-                    <CurrencyTrend/>
+            <div class="h-[55%] mt-[1%] flex flex-row gap-[0.5%] items-stretch">
+                <div :class="selectedLedger === '0' ? 'w-3/4' : 'w-7/12'" class = "flex bg-whie-100 rounded-lg shadow-lg">
+                    
                 </div>
                 <div :class="selectedLedger === '0' ? 'w-1/4' : 'w-3/12'" class="w-1/4">
                     <LedgerApproval @selectLedger="selectLedger"/>
