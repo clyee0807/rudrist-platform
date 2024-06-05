@@ -1,7 +1,7 @@
 <script setup>
 const sideNavigations = ref([
     {
-        name: "Dashboard",
+        name: "AdminDashboard",
         icon: "/_nuxt/assets/img/admin/AdminDashboard.png",
     }, 
     {
@@ -9,11 +9,11 @@ const sideNavigations = ref([
         icon: "/_nuxt/assets/img/admin/Account.png",
     }, 
     {
-        name: "Account Manage",
+        name: "AccountManage",
         icon: "/_nuxt/assets/img/admin/AccountManage.png",
     },
     {
-        name: "Portfolio Manage",
+        name: "PortfolioManage",
         icon: "/_nuxt/assets/img/admin/PortfolioManage.png",
     }
 ]);

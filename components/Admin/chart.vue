@@ -1,3 +1,4 @@
+<!-- Admin: Account/chart -->
 <template>
     <div class="h-full px-6 py-4 bg-white-100 rounded-xl shadow-md flex flex-col">
         <p class="h2-font">{{ledgerName}}</p>
@@ -16,7 +17,7 @@ import { Pie } from 'vue-chartjs';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const ledgerName = 'Ledger 0';
+const ledgerName = 'Portfolio 0';
 const chartData = {
     labels: ['Porfolio A', 'Porfolio B', 'Porfolio C', 'Porfolio D'],
     datasets: [

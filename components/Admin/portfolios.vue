@@ -18,74 +18,74 @@
     </div>
     </template>
     
-    <script setup>
-    import { ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
+import { usePortfolioStore } from '@/stores/portfolioStore';
+const portfolioStore = usePortfolioStore();
+// console.log(`Portfolio: ${portfolioStore.portfolios}`);
+
     
-    // Initialize portfolios as a reactive reference
-    const portfolios = ref([
-        { id: 1, name: 'Portfolio A', amount: 147724 },
-        { id: 2, name: 'Portfolio B', amount: 322041 },
-        { id: 3, name: 'Portfolio C', amount: 2679 },
-        { id: 4, name: 'Portfolio B', amount: 322041 },
-        { id: 5, name: 'Portfolio B', amount: 1451 },
-        { id: 6, name: 'Portfolio B', amount: 3465232 },
-        { id: 7, name: 'Portfolio B', amount: 12345 },
-    ]);
-    
-    const handleDelectPortfolio = (pid) => {
-        console.log(`Delete portfolio ${pid}`);
-        portfolios.value = portfolios.value.filter(portfolio => portfolio.id !== pid);
-    }
-    
-    const handleMouseOver = (event) => {
-      event.currentTarget.classList.add('hover');
-    };
-    
-    const handleMouseLeave = (event) => {
-      event.currentTarget.classList.remove('hover');
-    };
-    
-    </script>
-    
-    
-    
-    <style scoped>
-    
-    
-    .portfolio {
-      position: relative;
-      border: 2px solid rgba(216, 216, 216, 1);
-      margin-bottom: 8px;
-      border-radius: 8px;
-      background: linear-gradient(to right, rgba(64, 199, 158, 0.2) 0%, rgba(64, 199, 158, 0.2) 100%);
-      background-size: 0% 100%;
-      background-repeat: no-repeat;
-      transition: background-size 0.5s, border-color 0.5s, border-radius 0.5s;
-    }
-    
-    .portfolio::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 8px;
-      background: linear-gradient(to right, rgba(64, 199, 158, 0.2) 0%, rgba(64, 199, 158, 0.2) 100%);
-      z-index: -1;
-      transition: background 0.5s, border-radius 0.5s;
-    }
-    
-    .portfolio:hover::before, .portfolio.hover::before {
-      background: linear-gradient(to right, rgba(64, 199, 158, 0.2) 0%, rgba(64, 199, 158, 0.2) 100%);
-      border-radius: 8px;
-    }
-    
-    .portfolio:hover, .portfolio.hover {
-      background-size: 100% 100%;
-      border-color: rgba(64, 199, 158, 1);
-      border-radius: 8px;
-    }
+// Initialize dummy portfolios
+const portfolios = ref([
+    { id: 1, name: 'Portfolio A', amount: 147724 },
+    { id: 2, name: 'Portfolio B', amount: 322041 },
+    { id: 3, name: 'Portfolio C', amount: 2679 },
+    { id: 4, name: 'Portfolio B', amount: 322041 },
+    { id: 5, name: 'Portfolio B', amount: 1451 },
+    { id: 6, name: 'Portfolio B', amount: 3465232 },
+    { id: 7, name: 'Portfolio B', amount: 12345 },
+]);
+
+const handleDelectPortfolio = (pid) => {
+    console.log(`Delete portfolio ${pid}`);
+    portfolios.value = portfolios.value.filter(portfolio => portfolio.id !== pid);
+}
+
+const handleMouseOver = (event) => {
+  event.currentTarget.classList.add('hover');
+};
+
+const handleMouseLeave = (event) => {
+  event.currentTarget.classList.remove('hover');
+};
+
+</script>
+
     
     
-    </style>
+<style scoped>
+.portfolio {
+  position: relative;
+  border: 2px solid rgba(216, 216, 216, 1);
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: linear-gradient(to right, rgba(64, 199, 158, 0.2) 0%, rgba(64, 199, 158, 0.2) 100%);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s, border-color 0.5s, border-radius 0.5s;
+}
+
+.portfolio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background: linear-gradient(to right, rgba(64, 199, 158, 0.2) 0%, rgba(64, 199, 158, 0.2) 100%);
+  z-index: -1;
+  transition: background 0.5s, border-radius 0.5s;
+}
+
+.portfolio:hover::before, .portfolio.hover::before {
+  background: linear-gradient(to right, rgba(64, 199, 158, 0.2) 0%, rgba(64, 199, 158, 0.2) 100%);
+  border-radius: 8px;
+}
+
+.portfolio:hover, .portfolio.hover {
+  background-size: 100% 100%;
+  border-color: rgba(64, 199, 158, 1);
+  border-radius: 8px;
+}
+</style>
