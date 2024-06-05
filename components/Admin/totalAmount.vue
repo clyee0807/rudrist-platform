@@ -1,17 +1,16 @@
+<!-- Admin: Dashboard/TotalAmount & Action -->
 <template>
     <div class="h-full px-6 py-4 bg-white-100 rounded-xl shadow-md flex flex-col">
         <p class="h2-font">Total Amount</p>  
-        <!-- <div class="min-h-[50%] max-h-[75%]"> -->
-            <div class="flex flex-row justify-between items-center rounded-md bg-white-200 px-[0.5%] py-[3%] my-[2%]">
-                <div class="w-1/2">
-                    <p class="h3-font text-center">$</p>
-                </div>
-                <div class="w-1/2 flex flex-row items-center justify-center">
-                    <p class="h3-font text-center">{{ amount.toLocaleString() }}&nbsp;&nbsp;</p>
-                    <p class="tag-font text-center ">BTC</p>
-                </div>	
+        <div class="flex flex-row justify-between items-center rounded-md bg-white-200 px-[0.5%] py-[3%] my-[2%]">
+            <div class="w-1/2">
+                <p class="h3-font text-center">$</p>
             </div>
-        <!-- </div> -->
+            <div class="w-1/2 flex flex-row items-center justify-center">
+                <p class="h3-font text-center">{{ amount.toLocaleString() }}&nbsp;&nbsp;</p>
+                <p class="tag-font text-center ">BTC</p>
+            </div>	
+        </div>
         <p class="h2-font">Action</p>  
         <div class="flex flex-col justify-between rounded-md border-2 p-[3%] my-[2%] cursor-pointer">
             <p class="h3-font ">Add</p>
@@ -22,7 +21,6 @@
                     </svg>
                 </div>
                 <p class="h3-font text-center">{{ amount.toLocaleString() }}&nbsp;&nbsp;</p>
-                <!-- <DropDown class="text-center text-xl font-normal text-black-100 dark:text-white-100" width="10rem" height="2.5rem" :items="currencyDropDownItems"/> -->
                 <DropDown class="text-center text-base font-medium text-black-100" width="100%" height="1.6rem" :items="dropDownItems"/>
                 <!-- <div class="dropdown tag-font" @click="toggleAddDropdown" @blur="closeAddDropdown" tabindex="0">
 					<button class="dropdown-button pl-2 inline-flex border rounded-lg items-center">{{ addCurrentCurrency }}
@@ -68,24 +66,6 @@
 </template>
     
 <script setup>
-// const isAddDropdownOpen = ref(false);
-// const isRemoveDropdownOpen = ref(false);
-// const addCurrentCurrency = ref('TWD');
-// const removeCurrentCurrency = ref('TWD');
-
-// const toggleAddDropdown = () => {
-//     isAddDropdownOpen.value = !isAddDropdownOpen.value;
-// }
-// const closeAddDropdown = () => {
-//     isAddDropdownOpen.value = false;
-// }
-
-// const toggleRemoveDropdown = () => {
-//     isRemoveDropdownOpen.value = !isRemoveDropdownOpen.value;
-// }
-// const closeRemoveDropdown = () => {
-//     isRemoveDropdownOpen.value = false;
-// }
 
 const dropDownItems = ref([
     {

@@ -1,5 +1,5 @@
 <script setup>
-// Admin: Dashboard 
+// Admin: Dashboard Page
 definePageMeta({
     layout: "admin",
     middleware: ["admin-auth"]
